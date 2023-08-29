@@ -1,0 +1,123 @@
+# примеры API-запросов
+
+@baseUrl = http://localhost:8000/api/v1
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "product6",
+  "description": "best prod6"
+}
+
+###
+
+# получение всех продуктов
+GET {{baseUrl}}/products/
+Content-Type: application/json
+
+###
+
+# получение всех складов
+GET {{baseUrl}}/stocks/
+Content-Type: application/json
+
+###
+
+# получение продуктов по определенному полю
+GET {{baseUrl}}/products/?title=Помидор
+Content-Type: application/json
+
+
+###
+
+# поиск продуктов по значению поля
+GET {{baseUrl}}/products/?q=самые
+Content-Type: application/json
+
+
+###
+
+# упорядочивание продуктов по полям
+GET {{baseUrl}}/products/?q=самые&o=-id,title
+Content-Type: application/json
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/4/
+Content-Type: application/json
+
+{
+  "description": "свежая зелень"
+}
+
+###
+
+# удаление продукта
+DELETE {{baseUrl}}/products/7/
+Content-Type: application/json
+
+###
+
+# поиск продуктов по названию и описанию
+GET {{baseUrl}}/products/?q=огур
+Content-Type: application/json
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "мrrrой адffс .ru3",
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 250,
+      "price": 120.50
+    },
+    {
+      "product": 3,
+      "quantity": 100,
+      "price": 180
+    }
+  ]
+}
+
+###
+
+# обновляем записи на складе
+PATCH {{baseUrl}}/stocks/5/
+Content-Type: application/json
+
+{
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 100,
+      "price": 130.80
+    },
+    {
+      "product": 3,
+      "quantity": 243,
+      "price": 145
+    }
+  ]
+}
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?address=address 1
+Content-Type: application/json
+
+###
+
+# поиск складов, где есть определенный продукт
+GET {{baseUrl}}/stocks/?q=2
+Content-Type: application/json
+
+###
