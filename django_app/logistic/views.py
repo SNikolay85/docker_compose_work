@@ -27,4 +27,4 @@ class StockViewSet(ModelViewSet):
 
 @api_view(['GET'])
 def test_page(request):
-    return Response('Test now CICD!')
+    return Response('Test nows CICD!')
